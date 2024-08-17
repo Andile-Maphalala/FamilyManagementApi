@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using FamilyManagement.Domain.Entities;
 using FamilyManagement.Persistence.Data;
 using static FamilyManagement.Persistence.PersistenceServicesResgistration;
+using FamilyManagement.Persistence.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
