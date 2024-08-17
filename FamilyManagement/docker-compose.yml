@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  familymanagement.api:
+    image: ${DOCKER_REGISTRY-}familymanagementapi
+    build:
+      context: .
+      dockerfile: FamilyManagement.Api/Dockerfile
+    ports:
+      - "8080"
+      - "8081"
+  familymanagement.database:
+    image: postgres:latest
+    container_name: familymanagement.database
+    environment:
+    - POSTGRES_DB=${POSTGRES_DB}
+    - POSTGRES_USER=${POSTGRES_USER}
+    - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+        - ./.containers/products-db:/var/lib/posgresql/data
+    ports:
+        - 5432:5432
+  
